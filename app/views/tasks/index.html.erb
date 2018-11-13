@@ -1,0 +1,12 @@
+<h1>My awesome tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task[:completed] == true ? "[X] " : "[ ] " %><%= link_to task[:title], task_path(task)%> <%= link_to "Destroy", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></li>
+  <% end %>
+</ul>
+
+<br>
+<h3><%=  link_to "Create a post", tasks_new_path%></h3>
